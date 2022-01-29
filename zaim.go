@@ -14,6 +14,22 @@ type ZaimData struct {
 	accounts   []gozaim.Account
 }
 
+type MoneyJP struct {
+	Date         string `csv:"日付"`
+	Mode         string `csv:"方法"`
+	Category     string `csv:"カテゴリ"`
+	Genre        string `csv:"カテゴリの内訳"`
+	From         string `csv:"支払元"`
+	To           string `csv:"入金先"`
+	Name         string `csv:"品目"`
+	Comment      string `csv:"メモ"`
+	Place        string `csv:"お店"`
+	CurrencyCode string `csv:"通貨"`
+	Income       int    `csv:"収入"`
+	Payment      int    `csv:"支出"`
+	Transfer     int    `csv:"振替"`
+}
+
 // Zaimのデータを取得する
 func GetZaimData(c *gozaim.Client) ZaimData {
 
@@ -52,6 +68,34 @@ func GetZaimData(c *gozaim.Client) ZaimData {
 	}
 
 	return result
+}
+
+// 種別IDをもとに、種別名を付与する
+func ConvertData(datas ZaimData) []MoneyJP {
+	var money []MoneyJP
+
+	for _, v := range datas.money {
+		p, i, t := GetAmount(v.Mode, v.Amount)
+		cm := MoneyJP{
+			v.Date,
+			v.Mode,
+			GetCategoryName(v.CategoryID, datas.categories),
+			GetGenreName(v.GenreID, datas.genres),
+			GetAccountName(v.FromAccountID, datas.accounts),
+			GetAccountName(v.ToAccountID, datas.accounts),
+			v.Name,
+			v.Comment,
+			v.Place,
+			v.CurrencyCode,
+			p,
+			i,
+			t,
+		}
+
+		money = append(money, cm)
+
+	}
+	return money
 }
 
 // IDに紐づくカテゴリ名を返却

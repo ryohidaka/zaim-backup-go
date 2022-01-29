@@ -9,6 +9,9 @@ func main() {
 
 	// データ取得
 	d := GetZaimData(c)
-	fmt.Println(d)
+
+	// 種別名を付与する
+	cd := ConvertData(d)
+	fmt.Println(cd)
 
 }
