@@ -63,3 +63,13 @@ func GetCategoryName(id int, categories []gozaim.Category) string {
 	}
 	return ""
 }
+
+// IDに紐づくジャンル名を返却
+func GetGenreName(id int, genres []gozaim.Genre) string {
+	for _, v := range genres {
+		if v.ID == id {
+			return v.Name
+		}
+	}
+	return ""
+}
