@@ -83,3 +83,21 @@ func GetAccountName(id int, accounts []gozaim.Account) string {
 	}
 	return "-"
 }
+
+// 方法に応じた額を返却
+func GetAmount(mode string, amount int) (int, int, int) {
+	var p, i, t int
+
+	switch mode {
+	case "payment":
+		p = amount
+	case "income":
+		i = amount
+	case "transfer":
+		t = amount
+	default:
+	}
+
+	return p, i, t
+
+}
