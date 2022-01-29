@@ -6,6 +6,9 @@ func main() {
 
 	// クライアント設定
 	c := GetClient()
-	fmt.Println(c)
+
+	// データ取得
+	d := GetZaimData(c)
+	fmt.Println(d)
 
 }
