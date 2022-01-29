@@ -73,3 +73,13 @@ func GetGenreName(id int, genres []gozaim.Genre) string {
 	}
 	return ""
 }
+
+// IDに紐づく口座名を返却
+func GetAccountName(id int, accounts []gozaim.Account) string {
+	for _, v := range accounts {
+		if v.ID == id {
+			return v.Name
+		}
+	}
+	return "-"
+}
