@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 
 	// クライアント設定
@@ -12,6 +10,8 @@ func main() {
 
 	// 種別名を付与する
 	cd := ConvertData(d)
-	fmt.Println(cd)
+
+	// CSV出力する
+	OutputCSV(cd)
 
 }

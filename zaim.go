@@ -3,7 +3,9 @@ package main
 import (
 	"fmt"
 	"net/url"
+	"os"
 
+	"github.com/gocarina/gocsv"
 	gozaim "github.com/s-sasaki-0529/go-zaim"
 )
 
@@ -143,5 +145,18 @@ func GetAmount(mode string, amount int) (int, int, int) {
 	}
 
 	return p, i, t
+
+}
+
+// CSV出力
+func OutputCSV(money []MoneyJP) {
+	file, err := os.OpenFile("zaim-backup.csv", os.O_RDWR|os.O_CREATE, os.ModePerm)
+	if err != nil {
+		fmt.Println("Failed to write csv", err)
+	}
+	defer file.Close()
+
+	// csvファイルを書き出し
+	gocsv.MarshalFile(&money, file)
 
 }

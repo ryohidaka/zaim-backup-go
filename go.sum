@@ -1,6 +1,8 @@
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dghubble/oauth1 v0.7.1 h1:JjbOVSVVkms9A4h/sTQy5Jb2nFuAAVb2qVYgenJPyrE=
 github.com/dghubble/oauth1 v0.7.1/go.mod h1:0eEzON0UY/OLACQrmnjgJjmvCGXzjBCsZqL1kWDXtF0=
+github.com/gocarina/gocsv v0.0.0-20211203214250-4735fba0c1d9 h1:ptTza/LLPmfRtmz77X+6J61Wyf5e1hz5xYMvRk/hkE4=
+github.com/gocarina/gocsv v0.0.0-20211203214250-4735fba0c1d9/go.mod h1:5YoVOkjYAQumqlV356Hj3xeYh4BdZuLE0/nRkf2NKkI=
 github.com/joho/godotenv v1.4.0 h1:3l4+N6zfMWnkbPEXKng2o2/MR5mSwTrBih4ZEkkz1lg=
 github.com/joho/godotenv v1.4.0/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
