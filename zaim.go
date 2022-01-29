@@ -10,6 +10,7 @@ import (
 type ZaimData struct {
 	money      []gozaim.Money
 	categories []gozaim.Category
+	genres     []gozaim.Genre
 }
 
 // Zaimのデータを取得する
@@ -30,9 +31,16 @@ func GetZaimData(c *gozaim.Client) ZaimData {
 		fmt.Println("Failed to get categories", err)
 	}
 
+	// ジャンル一覧取得
+	g, err := c.FetchGenres()
+	if err != nil {
+		fmt.Println("Failed to get genres", err)
+	}
+
 	result := ZaimData{
 		m,
 		ca,
+		g,
 	}
 
 	return result
