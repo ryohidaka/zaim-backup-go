@@ -53,3 +53,13 @@ func GetZaimData(c *gozaim.Client) ZaimData {
 
 	return result
 }
+
+// IDに紐づくカテゴリ名を返却
+func GetCategoryName(id int, categories []gozaim.Category) string {
+	for _, v := range categories {
+		if v.ID == id {
+			return v.Name
+		}
+	}
+	return ""
+}
