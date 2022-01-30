@@ -11,6 +11,9 @@ func main() {
 	// 種別名を付与する
 	cd := ConvertData(d)
 
+	// JSON出力する
+	OutputJSON(d.money)
+
 	// CSV出力する
 	OutputCSV(cd)
 

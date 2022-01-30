@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/url"
 	"os"
 
@@ -145,6 +147,20 @@ func GetAmount(mode string, amount int) (int, int, int) {
 	}
 
 	return p, i, t
+
+}
+
+// JSON出力
+func OutputJSON(money gozaim.MoneySlice) {
+	file, err := json.MarshalIndent(money, "", " ")
+	if err != nil {
+		fmt.Println("Failed to convert json", err)
+	}
+
+	err = ioutil.WriteFile("zaim-backup.json", file, 0644)
+	if err != nil {
+		fmt.Println("Failed to write json", err)
+	}
 
 }
 
